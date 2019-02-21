@@ -8,14 +8,12 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/oldnum"
-        android:layout_width="wrap_content"
-        android:layout_height="58dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:id="@+id/result"
+        android:layout_width="244dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/calculator_box"
         android:ellipsize="start"
         android:ems="10"
@@ -23,18 +21,19 @@
         android:focusableInTouchMode="false"
         android:gravity="center"
         android:inputType="numberSigned|numberDecimal"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/textColor"
         android:textColorHint="@color/colorPrimaryDark"
         android:textCursorDrawable="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/num7"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/num7"
         android:layout_width="66dp"
         android:layout_height="66dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/calculator_box"
         android:text="7"
         android:textColor="@color/colorAccent"
@@ -304,33 +303,100 @@
 
     <EditText
         android:id="@+id/newnum"
-        android:layout_width="wrap_content"
-        android:layout_height="58dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_width="244dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/calculator_box"
         android:ellipsize="start"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberSigned|numberDecimal"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/textColor"
         android:textColorHint="@color/colorPrimaryDark"
         android:textCursorDrawable="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/oldnum" />
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/num7"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <TextView
         android:id="@+id/operator"
         android:layout_width="66dp"
-        android:layout_height="58dp"
+        android:layout_height="66dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:background="@drawable/calculator_box"
+        android:gravity="center"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newnum"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/negative"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/calculator_box"
+        android:text="NEG"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/clearButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/oldnum" />
+        app:layout_constraintTop_toBottomOf="@+id/dot" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/calculator_box"
+        android:text="C"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/noFunction"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/negative"
+        app:layout_constraintTop_toBottomOf="@+id/num0" />
+
+    <Button
+        android:id="@+id/noFunction"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/calculator_box"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/noFunction1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/clearButton"
+        app:layout_constraintTop_toBottomOf="@+id/equal" />
+
+    <Button
+        android:id="@+id/noFunction1"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/calculator_box"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/noFunction"
+        app:layout_constraintTop_toBottomOf="@+id/multiply" />
 
 </android.support.constraint.ConstraintLayout>
